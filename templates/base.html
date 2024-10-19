@@ -1,0 +1,32 @@
+<!-- load in our static files -->
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="A basic blog to demonstrate Django">
+        <!-- put favicon links here -->
+
+        <!-- end of favicon links -->
+        <!-- Bootstrap css link -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous"> 
+        <!-- fontawesome link -->
+        <script src="https://kit.fontawesome.com/cd2a226592.js" crossorigin="anonymous"></script>
+        <!-- my css link - notice the static tag used to load it from the static files -->
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+        <!-- title of the site - added a title block to allow us to update it from other pages if we wanted to -->
+        <!-- as the block appears after the title, updates would still include the original title so "Blog | My Account" if we updated with "| My Account"-->
+        <title>Blog {% block title %}{% endblock %}</title>
+    </head>
+    <body>
+        {% block body %}
+        <!-- this is where we are going to insert other page content into the base template -->
+        {% endblock %}
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+        <!-- my js link -->
+        <script src="{% static 'js/script.js' %}"></script>
+    </body>
+</html>
